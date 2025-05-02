@@ -9,7 +9,7 @@
     * { box-sizing: border-box; }
     body { margin: 0; font-family: 'Inter', sans-serif; background: #fff0f5; color: #333; }
     header {
-      background: #fff;
+      background: linear-gradient(90deg, #f06292, #f48fb1);
       padding: 20px;
       position: sticky;
       top: 0;
@@ -20,17 +20,17 @@
     nav a {
       margin: 0 15px;
       text-decoration: none;
-      color: #555;
+      color: #fff;
       font-weight: 600;
     }
-    nav a:hover { color: #e91e63; }
+    nav a:hover { color: #ffe0ef; }
     .hero {
       background: url('hero.jpg') center/cover no-repeat;
       color: white;
       text-align: center;
       padding: 150px 20px;
     }
-    .hero h1 { font-size: 3rem; margin-bottom: 10px; }
+    .hero h1 { font-size: 3rem; margin-bottom: 10px; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
     .section {
       padding: 80px 20px;
       background: white;
@@ -40,6 +40,7 @@
       text-align: center;
       font-size: 2.5rem;
       margin-bottom: 40px;
+      color: #d81b60;
     }
     .grid {
       display: grid;
@@ -47,11 +48,26 @@
       gap: 30px;
     }
     .card {
-      background: white;
+      background: #fff;
       border-radius: 16px;
       padding: 30px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.1);
       text-align: center;
+      transition: transform 0.3s, background-image 0.3s ease-in-out;
+      background-size: cover;
+      background-position: center;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      color: white;
+    }
+    .card[data-image]:hover {
+      background-image: attr(data-image url);
+    }
+    .card h3, .card p {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 10px;
     }
     .card img {
       border-radius: 50%;
@@ -59,6 +75,7 @@
       height: 100px;
       object-fit: cover;
       margin-bottom: 15px;
+      border: 4px solid #f8bbd0;
     }
     form {
       max-width: 600px;
@@ -72,6 +89,9 @@
       border: 1px solid #ccc;
       border-radius: 8px;
       font-size: 1rem;
+    }
+    select option {
+      color: #555;
     }
     button {
       background: #e91e63;
@@ -87,16 +107,16 @@
     footer {
       text-align: center;
       padding: 40px 20px;
-      background: #fff;
+      background: #f8bbd0;
       border-top: 1px solid #eee;
-      color: #777;
+      color: #555;
     }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <h1>Nom du Salon</h1>
+      <h1 style="color:white;">Nom du Salon</h1>
       <nav>
         <a href="#services">Services</a>
         <a href="#equipe">Équipe</a>
@@ -117,17 +137,59 @@
       <div class="card">
         <h3>Coupe</h3>
         <p>Prestation de coupe moderne et personnalisée selon vos envies.</p>
+        <div class="image-container">
+          <img src="coupe.jpg" alt="Coupe" class="service-image">
+        </div>
       </div>
       <div class="card">
         <h3>Coloration</h3>
         <p>Couleurs vibrantes, balayages, mèches et techniques professionnelles.</p>
+        <div class="image-container">
+          <img src="coloration.jpg" alt="Coloration" class="service-image">
+        </div>
       </div>
       <div class="card">
         <h3>Soins</h3>
         <p>Traitements capillaires nourrissants et réparateurs de qualité.</p>
+        <div class="image-container">
+          <img src="soins.jpg" alt="Soins" class="service-image">
+        </div>
+      </div>
+      <div class="card">
+        <h3>Brushing</h3>
+        <p>Brushing professionnel pour un style impeccable en toute occasion.</p>
+        <div class="image-container">
+          <img src="brushing.jpg" alt="Brushing" class="service-image">
+        </div>
+      </div>
+      <div class="card">
+        <h3>Extensions</h3>
+        <p>Pose d’extensions naturelles pour plus de volume et de longueur.</p>
+        <div class="image-container">
+          <img src="extensions.jpg" alt="Extensions" class="service-image">
+        </div>
       </div>
     </div>
   </section>
+  
+  <style>
+    .image-container {
+      display: none;
+      margin-top: 15px;
+    }
+  
+    .service-image {
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+      height: 200px;
+    }
+  
+    .card:hover .image-container {
+      display: block;
+    }
+  </style>
+  
 
   <section id="equipe" class="section">
     <h2>Notre Équipe</h2>
@@ -156,22 +218,30 @@
       <form>
         <input type="text" placeholder="Votre nom" required>
         <input type="email" placeholder="Votre email" required>
-        <select>
+        <select required>
           <option disabled selected>Choisir une prestation</option>
           <option>Coupe</option>
           <option>Coloration</option>
           <option>Soin</option>
+          <option>Brushing</option>
+          <option>Extensions</option>
         </select>
         <input type="date" required>
         <select required>
           <option disabled selected>Choisir un horaire</option>
           <option>09:00</option>
+          <option>09:30</option>
           <option>10:00</option>
+          <option>10:30</option>
           <option>11:00</option>
           <option>13:00</option>
+          <option>13:30</option>
           <option>14:00</option>
+          <option>14:30</option>
           <option>15:00</option>
+          <option>15:30</option>
           <option>16:00</option>
+          <option>16:30</option>
           <option>17:00</option>
         </select>
         <button type="submit">Réserver</button>
@@ -195,6 +265,4 @@
     © 2025 Nom du Salon. Tous droits réservés.
   </footer>
 </body>
-</html>
-
 
