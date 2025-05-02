@@ -1,1 +1,200 @@
-<h1>le daron a MAYRON</h1>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nom du Salon</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Inter', sans-serif; background: #fff0f5; color: #333; }
+    header {
+      background: #fff;
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #555;
+      font-weight: 600;
+    }
+    nav a:hover { color: #e91e63; }
+    .hero {
+      background: url('hero.jpg') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 150px 20px;
+    }
+    .hero h1 { font-size: 3rem; margin-bottom: 10px; }
+    .section {
+      padding: 80px 20px;
+      background: white;
+    }
+    .section:nth-child(even) { background: #ffe4ec; }
+    .section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .card img {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, textarea, select, button {
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    button {
+      background: #e91e63;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #c2185b;
+    }
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: #fff;
+      border-top: 1px solid #eee;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Nom du Salon</h1>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#equipe">Équipe</a>
+        <a href="#reservation">Réserver</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Bienvenue au salon</h1>
+    <p>Coiffure & soins capillaires haut de gamme</p>
+  </section>
+
+  <section id="services" class="section">
+    <h2>Nos Services</h2>
+    <div class="container grid">
+      <div class="card">
+        <h3>Coupe</h3>
+        <p>Prestation de coupe moderne et personnalisée selon vos envies.</p>
+      </div>
+      <div class="card">
+        <h3>Coloration</h3>
+        <p>Couleurs vibrantes, balayages, mèches et techniques professionnelles.</p>
+      </div>
+      <div class="card">
+        <h3>Soins</h3>
+        <p>Traitements capillaires nourrissants et réparateurs de qualité.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="equipe" class="section">
+    <h2>Notre Équipe</h2>
+    <div class="container grid">
+      <div class="card">
+        <img src="equipe1.jpg" alt="Alice">
+        <h3>Alice</h3>
+        <p>Spécialiste coloration</p>
+      </div>
+      <div class="card">
+        <img src="equipe2.jpg" alt="Bruno">
+        <h3>Bruno</h3>
+        <p>Coiffeur-styliste</p>
+      </div>
+      <div class="card">
+        <img src="equipe3.jpg" alt="Camille">
+        <h3>Camille</h3>
+        <p>Experte en soins</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="reservation" class="section">
+    <h2>Réservez une séance</h2>
+    <div class="container">
+      <form>
+        <input type="text" placeholder="Votre nom" required>
+        <input type="email" placeholder="Votre email" required>
+        <select>
+          <option disabled selected>Choisir une prestation</option>
+          <option>Coupe</option>
+          <option>Coloration</option>
+          <option>Soin</option>
+        </select>
+        <input type="date" required>
+        <select required>
+          <option disabled selected>Choisir un horaire</option>
+          <option>09:00</option>
+          <option>10:00</option>
+          <option>11:00</option>
+          <option>13:00</option>
+          <option>14:00</option>
+          <option>15:00</option>
+          <option>16:00</option>
+          <option>17:00</option>
+        </select>
+        <button type="submit">Réserver</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Contactez-nous</h2>
+    <div class="container">
+      <form>
+        <input type="text" placeholder="Nom complet" required>
+        <input type="email" placeholder="Adresse email" required>
+        <textarea rows="5" placeholder="Votre message" required></textarea>
+        <button type="submit">Envoyer</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Nom du Salon. Tous droits réservés.
+  </footer>
+</body>
+</html>
+
+
