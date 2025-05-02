@@ -1,46 +1,76 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Nom du Salon</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: 'Inter', sans-serif; background: #fff0f5; color: #333; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #121212;
+      color: #f5f5f5;
+      font-family: 'Roboto', sans-serif;
+    }
     header {
-      background: linear-gradient(90deg, #f06292, #f48fb1);
+      background: linear-gradient(90deg, #2c2c2c, #1b1b1b);
       padding: 20px;
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.5);
     }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #f5f5f5;
+    }
+    nav {
+      margin-top: 10px;
+    }
     nav a {
+      color: #d7ccc8;
       margin: 0 15px;
       text-decoration: none;
-      color: #fff;
+      font-family: 'Raleway', sans-serif;
       font-weight: 600;
     }
-    nav a:hover { color: #ffe0ef; }
+    nav a:hover {
+      color: #ffab91;
+    }
     .hero {
       background: url('hero.jpg') center/cover no-repeat;
-      color: white;
+      padding: 140px 20px;
       text-align: center;
-      padding: 150px 20px;
+      color: #fff;
     }
-    .hero h1 { font-size: 3rem; margin-bottom: 10px; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
-    .section {
+    .hero h1 {
+      font-size: 3.5rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    }
+    section {
       padding: 80px 20px;
-      background: white;
+      background-color: #1e1e1e;
     }
-    .section:nth-child(even) { background: #ffe4ec; }
-    .section h2 {
+    section:nth-child(even) {
+      background-color: #2c2c2c;
+    }
+    section h2 {
       text-align: center;
       font-size: 2.5rem;
       margin-bottom: 40px;
-      color: #d81b60;
+      color: #d7ccc8;
+      font-family: 'Playfair Display', serif;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
     }
     .grid {
       display: grid;
@@ -48,34 +78,34 @@
       gap: 30px;
     }
     .card {
-      background: #fff;
+      background-color: #2a2a2a;
       border-radius: 16px;
       padding: 30px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
       text-align: center;
-      transition: transform 0.3s, background-image 0.3s ease-in-out;
-      background-size: cover;
-      background-position: center;
+      color: #f5f5f5;
+      transition: transform 0.3s ease;
     }
     .card:hover {
-      transform: translateY(-5px);
-      color: white;
-    }
-    .card[data-image]:hover {
-      background-image: attr(data-image url);
-    }
-    .card h3, .card p {
-      background: rgba(0, 0, 0, 0.5);
-      padding: 10px;
-      border-radius: 10px;
+      transform: scale(1.03);
+      background-color: #3e3e3e;
     }
     .card img {
-      border-radius: 50%;
       width: 100px;
       height: 100px;
+      border-radius: 50%;
       object-fit: cover;
+      border: 4px solid #8d6e63;
       margin-bottom: 15px;
-      border: 4px solid #f8bbd0;
+    }
+    .card h3 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.4rem;
+    }
+    .card p {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+      opacity: 0.85;
     }
     form {
       max-width: 600px;
@@ -86,37 +116,53 @@
     }
     input, textarea, select, button {
       padding: 15px;
-      border: 1px solid #ccc;
+      border: none;
       border-radius: 8px;
       font-size: 1rem;
+      font-family: 'Roboto', sans-serif;
+      background-color: #333;
+      color: #fff;
     }
     select option {
-      color: #555;
+      color: #000;
     }
     button {
-      background: #e91e63;
+      background-color: #6d4c41;
       color: white;
       font-weight: bold;
-      border: none;
       cursor: pointer;
-      transition: 0.3s;
+      transition: background 0.3s;
     }
     button:hover {
-      background: #c2185b;
+      background-color: #5d4037;
     }
     footer {
+      background-color: #2c2c2c;
       text-align: center;
       padding: 40px 20px;
-      background: #f8bbd0;
-      border-top: 1px solid #eee;
-      color: #555;
+      color: #d7ccc8;
+      font-family: 'Raleway', sans-serif;
+    }
+    .image-container {
+      display: none;
+      margin-top: 15px;
+    }
+    .service-image {
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+      height: 200px;
+    }
+    .card:hover .image-container {
+      display: block;
     }
   </style>
 </head>
 <body>
+
   <header>
     <div class="container">
-      <h1 style="color:white;">Nom du Salon</h1>
+      <h1>Nom du Salon</h1>
       <nav>
         <a href="#services">Services</a>
         <a href="#equipe">Équipe</a>
@@ -128,10 +174,10 @@
 
   <section class="hero">
     <h1>Bienvenue au salon</h1>
-    <p>Coiffure & soins capillaires haut de gamme</p>
+    <h1 style="color:#a0a145;">Coiffure et soins capillaires haut de gamme</h1>
   </section>
 
-  <section id="services" class="section">
+  <section id="services">
     <h2>Nos Services</h2>
     <div class="container grid">
       <div class="card">
@@ -171,27 +217,8 @@
       </div>
     </div>
   </section>
-  
-  <style>
-    .image-container {
-      display: none;
-      margin-top: 15px;
-    }
-  
-    .service-image {
-      width: 100%;
-      border-radius: 8px;
-      object-fit: cover;
-      height: 200px;
-    }
-  
-    .card:hover .image-container {
-      display: block;
-    }
-  </style>
-  
 
-  <section id="equipe" class="section">
+  <section id="equipe">
     <h2>Notre Équipe</h2>
     <div class="container grid">
       <div class="card">
@@ -212,7 +239,7 @@
     </div>
   </section>
 
-  <section id="reservation" class="section">
+  <section id="reservation">
     <h2>Réservez une séance</h2>
     <div class="container">
       <form>
@@ -249,7 +276,7 @@
     </div>
   </section>
 
-  <section id="contact" class="section">
+  <section id="contact">
     <h2>Contactez-nous</h2>
     <div class="container">
       <form>
@@ -265,4 +292,4 @@
     © 2025 Nom du Salon. Tous droits réservés.
   </footer>
 </body>
-
+</html>
