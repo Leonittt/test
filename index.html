@@ -8,67 +8,89 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
     body {
+      font-family: 'Roboto', sans-serif;
       background-color: #121212;
       color: #f5f5f5;
-      font-family: 'Roboto', sans-serif;
+      overflow-x: hidden;
+      scroll-behavior: smooth; /* Ajoute l'effet de défilement fluide */
     }
+
+    /* HEADER */
     header {
-      background: linear-gradient(90deg, #2c2c2c, #1b1b1b);
+      background: linear-gradient(90deg, #3c3c3c, #1b1b1b);
       padding: 20px;
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      animation: fadeInHeader 1s forwards;
     }
     header h1 {
       font-family: 'Playfair Display', serif;
       font-size: 2.5rem;
       color: #f5f5f5;
+      text-align: center;
     }
     nav {
-      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
     }
     nav a {
       color: #d7ccc8;
-      margin: 0 15px;
+      margin: 0 20px;
       text-decoration: none;
-      font-family: 'Raleway', sans-serif;
       font-weight: 600;
+      font-family: 'Raleway', sans-serif;
+      opacity: 0;
+      animation: fadeInLinks 1.5s forwards;
+      animation-delay: 1s;
     }
     nav a:hover {
       color: #ffab91;
     }
+
+    /* HERO SECTION */
     .hero {
       background: url('hero.jpg') center/cover no-repeat;
-      padding: 140px 20px;
+      padding: 150px 20px;
       text-align: center;
-      color: #fff;
+      color: white;
+      opacity: 0;
+      animation: fadeInHero 1.5s forwards;
+      animation-delay: 0.5s;
     }
     .hero h1 {
-      font-size: 3.5rem;
+      font-size: 4rem;
       font-family: 'Playfair Display', serif;
       margin-bottom: 20px;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+      text-shadow: 3px 3px 10px rgba(0,0,0,0.8);
     }
+
+    /* GENERAL SECTION STYLING */
     section {
       padding: 80px 20px;
-      background-color: #1e1e1e;
+      opacity: 0;
+      animation: fadeIn 1.5s forwards;
     }
     section:nth-child(even) {
       background-color: #2c2c2c;
     }
     section h2 {
-      text-align: center;
       font-size: 2.5rem;
-      margin-bottom: 40px;
-      color: #d7ccc8;
       font-family: 'Playfair Display', serif;
+      text-align: center;
+      color: #ffab91;
+      margin-bottom: 40px;
     }
+
+    /* GRID FOR CARDS */
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -80,327 +102,271 @@
     }
     .card {
       background-color: #2a2a2a;
-      border-radius: 16px;
+      border-radius: 10px;
       padding: 30px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
       text-align: center;
-      color: #f5f5f5;
-      transition: transform 0.3s ease;
+      transition: all 0.3s ease;
+      opacity: 0;
+      animation: fadeInCard 1s forwards;
     }
     .card:hover {
-      transform: scale(1.03);
       background-color: #3e3e3e;
+      transform: scale(1.05);
     }
     .card img {
       width: 100px;
       height: 100px;
       border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #8d6e63;
       margin-bottom: 15px;
+      object-fit: cover;
     }
     .card h3 {
       font-family: 'Raleway', sans-serif;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
     }
     .card p {
       font-family: 'Roboto', sans-serif;
       font-size: 1rem;
       opacity: 0.85;
     }
-    form {
-      max-width: 600px;
+
+    /* FORM STYLING */
+    .reservation-form {
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      padding: 40px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      width: 100%;
+      max-width: 500px;
       margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
+      transition: all 0.3s ease;
     }
-    input, textarea, select, button {
+    .reservation-form:hover {
+      transform: translateY(-10px);
+    }
+    .reservation-form input, .reservation-form select, .reservation-form button {
+      width: 100%;
       padding: 15px;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-family: 'Roboto', sans-serif;
+      margin-bottom: 20px;
       background-color: #333;
+      border: 1px solid #555;
+      border-radius: 8px;
       color: #fff;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
     }
-    select option {
-      color: #000;
+    .reservation-form input:focus, .reservation-form select:focus, .reservation-form button:focus {
+      background-color: #444;
     }
-    button {
-      background-color: #6d4c41;
-      color: white;
-      font-weight: bold;
+    .reservation-form button {
+      background-color: #ffab91;
+      color: #2c2c2c;
       cursor: pointer;
-      transition: background 0.3s;
+      font-weight: 600;
     }
-    button:hover {
-      background-color: #5d4037;
+    .reservation-form button:hover {
+      background-color: #d47c5c;
     }
+
+    /* CONTACT SECTION */
+    #contact {
+      background-color: #2c2c2c;
+      padding: 80px 20px;
+    }
+    #contact h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      color: #ffab91;
+      margin-bottom: 40px;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      background-color: #333;
+      border: 1px solid #555;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+    .contact-form textarea {
+      height: 150px;
+    }
+    .contact-form input:focus, .contact-form textarea:focus {
+      background-color: #444;
+    }
+    .contact-form button {
+      width: 100%;
+      padding: 15px;
+      background-color: #ffab91;
+      border: none;
+      color: #2c2c2c;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .contact-form button:hover {
+      background-color: #d47c5c;
+    }
+
+    /* FOOTER */
     footer {
       background-color: #2c2c2c;
-      text-align: center;
       padding: 40px 20px;
+      text-align: center;
       color: #d7ccc8;
       font-family: 'Raleway', sans-serif;
     }
-    .image-container {
-      display: none;
-      margin-top: 15px;
+    footer p {
+      margin: 10px 0;
     }
-    .service-image {
-      width: 100%;
-      border-radius: 8px;
-      object-fit: cover;
-      height: 200px;
+    footer a {
+      color: #ffab91;
+      text-decoration: none;
     }
-    .card:hover .image-container {
-      display: block;
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInHeader {
+      from { opacity: 0; top: -100px; }
+      to { opacity: 1; top: 0; }
+    }
+    @keyframes fadeInLinks {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInHero {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInCard {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
 
+  <!-- HEADER -->
   <header>
-    <div class="container">
-      <h1>Nom du Salon</h1>
-      <nav>
-        <a href="#services">Services</a>
-        <a href="#equipe">Équipe</a>
-        <a href="#reservation">Réserver</a>
-        <a href="#galerie">Galerie</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
+    <h1>Nom du Salon</h1>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#equipe">Équipe</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#reservation">Réserver</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
+  <!-- HERO SECTION -->
   <section class="hero">
     <h1>Bienvenue au salon</h1>
     <h1 style="color:#a0a145;">Coiffure et soins capillaires haut de gamme</h1>
   </section>
 
-  <section id="galerie">
-    <h2>Galerie</h2>
-    <div class="container grid">
-      <div class="gallery-item">
-        <img src="https://via.placeholder.com/300x200" alt="Galerie 1" class="gallery-image">
-        <div class="gallery-overlay">
-          <h3>Coupe Moderne</h3>
-          <p>Une coupe stylée et moderne, adaptée à votre personnalité.</p>
-        </div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://via.placeholder.com/300x200" alt="Galerie 2" class="gallery-image">
-        <div class="gallery-overlay">
-          <h3>Coloration</h3>
-          <p>Des couleurs vibrantes pour illuminer votre coiffure.</p>
-        </div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://via.placeholder.com/300x200" alt="Galerie 3" class="gallery-image">
-        <div class="gallery-overlay">
-          <h3>Extensions</h3>
-          <p>Ajoutez du volume et de la longueur à vos cheveux.</p>
-        </div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://via.placeholder.com/300x200" alt="Galerie 4" class="gallery-image">
-        <div class="gallery-overlay">
-          <h3>Soin Capillaire</h3>
-          <p>Des soins professionnels pour des cheveux en pleine santé.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <style>
-    #galerie {
-      background-color: #121212;
-      padding: 80px 20px;
-    }
-  
-    #galerie h2 {
-      text-align: center;
-      color: #d7ccc8;
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      margin-bottom: 40px;
-    }
-  
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-  
-    .gallery-item {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease-in-out;
-    }
-  
-    .gallery-item:hover {
-      transform: scale(1.05);
-    }
-  
-    .gallery-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 12px;
-      transition: opacity 0.3s ease;
-    }
-  
-    .gallery-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-      color: #fff;
-      opacity: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      text-align: center;
-      transition: opacity 0.3s ease;
-    }
-  
-    .gallery-item:hover .gallery-overlay {
-      opacity: 1;
-    }
-  
-    .gallery-overlay h3 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-    }
-  
-    .gallery-overlay p {
-      font-size: 1rem;
-      opacity: 0.8;
-    }
-  </style>
-  
-
+  <!-- SERVICES SECTION -->
   <section id="services">
     <h2>Nos Services</h2>
-    <div class="container grid">
-      <div class="card">
-        <h3>Coupe</h3>
-        <p>Prestation de coupe moderne et personnalisée selon vos envies.</p>
-        <div class="image-container">
-          <img src="coupe.jpg" alt="Coupe" class="service-image">
+    <div class="container">
+      <div class="grid">
+        <div class="card">
+          <img src="coupe.jpg" alt="Coupe" />
+          <h3>Coupe</h3>
+          <p>Service de coupe personnalisé selon vos préférences.</p>
         </div>
-      </div>
-      <div class="card">
-        <h3>Coloration</h3>
-        <p>Couleurs vibrantes, balayages, mèches et techniques professionnelles.</p>
-        <div class="image-container">
-          <img src="coloration.jpg" alt="Coloration" class="service-image">
+        <div class="card">
+          <img src="coloration.jpg" alt="Coloration" />
+          <h3>Coloration</h3>
+          <p>Coloration moderne et soin capillaire inclus.</p>
         </div>
-      </div>
-      <div class="card">
-        <h3>Soins</h3>
-        <p>Traitements capillaires nourrissants et réparateurs de qualité.</p>
-        <div class="image-container">
-          <img src="soins.jpg" alt="Soins" class="service-image">
-        </div>
-      </div>
-      <div class="card">
-        <h3>Brushing</h3>
-        <p>Brushing professionnel pour un style impeccable en toute occasion.</p>
-        <div class="image-container">
-          <img src="brushing.jpg" alt="Brushing" class="service-image">
-        </div>
-      </div>
-      <div class="card">
-        <h3>Extensions</h3>
-        <p>Pose d’extensions naturelles pour plus de volume et de longueur.</p>
-        <div class="image-container">
-          <img src="extensions.jpg" alt="Extensions" class="service-image">
+        <div class="card">
+          <img src="soin.jpg" alt="Soin" />
+          <h3>Soin</h3>
+          <p>Des soins capillaires pour nourrir et revitaliser vos cheveux.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ÉQUIPE SECTION -->
   <section id="equipe">
     <h2>Notre Équipe</h2>
-    <div class="container grid">
-      <div class="card">
-        <img src="equipe1.jpg" alt="Alice">
-        <h3>Alice</h3>
-        <p>Spécialiste coloration</p>
-      </div>
-      <div class="card">
-        <img src="equipe2.jpg" alt="Bruno">
-        <h3>Bruno</h3>
-        <p>Coiffeur-styliste</p>
-      </div>
-      <div class="card">
-        <img src="equipe3.jpg" alt="Camille">
-        <h3>Camille</h3>
-        <p>Experte en soins</p>
+    <div class="container">
+      <div class="grid">
+        <div class="card">
+          <img src="coiffeur1.jpg" alt="Coiffeur" />
+          <h3>Jean Dupont</h3>
+          <p>Expert en coupe et styling</p>
+        </div>
+        <div class="card">
+          <img src="coiffeuse.jpg" alt="Coiffeuse" />
+          <h3>Marie Lefevre</h3>
+          <p>Spécialiste de la coloration et des soins</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="reservation">
-    <h2>Réservez une séance</h2>
+  <!-- GALERIE SECTION -->
+  <section id="galerie">
+    <h2>Galerie</h2>
     <div class="container">
-      <form id="reservation-form" action="https://formspree.io/f/xyzwwyby" method="POST">
-        <input type="text" name="nom" id="nom" placeholder="Votre nom" required>
-        <input type="email" name="email" id="email" placeholder="Votre email" required>
-        <select name="prestation" id="prestation" required>
-          <option disabled selected>Choisir une prestation</option>
-          <option>Coupe</option>
-          <option>Coloration</option>
-          <option>Soin</option>
-          <option>Brushing</option>
-          <option>Extensions</option>
-        </select>
-        <input type="date" name="date" id="date" required>
-        <select name="horaire" id="horaire" required>
-          <option disabled selected>Choisir un horaire</option>
-          <option>09:00</option>
-          <option>09:30</option>
+      <div class="grid">
+        <div class="card">
+          <img src="before_after1.jpg" alt="Avant / Après" />
+        </div>
+        <div class="card">
+          <img src="before_after2.jpg" alt="Avant / Après" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVATION SECTION -->
+  <section id="reservation">
+    <h2>Réservez Votre Rendez-vous</h2>
+    <div class="container">
+      <form class="reservation-form" action="https://formspree.io/f/xyzwwyby" method="POST">
+        <input type="text" name="name" placeholder="Votre nom" required />
+        <input type="email" name="email" placeholder="Votre email" required />
+        <input type="date" name="date" required />
+        <select name="time" required>
           <option>10:00</option>
-          <option>10:30</option>
-          <option>11:00</option>
-          <option>13:00</option>
-          <option>13:30</option>
+          <option>12:00</option>
           <option>14:00</option>
-          <option>14:30</option>
-          <option>15:00</option>
-          <option>15:30</option>
-          <option>16:00</option>
-          <option>16:30</option>
-          <option>17:00</option>
         </select>
-        <button type="submit">Réserver</button>
+        <button type="submit">Réserver maintenant</button>
       </form>
     </div>
   </section>
 
+  <!-- CONTACT SECTION -->
   <section id="contact">
     <h2>Contactez-nous</h2>
     <div class="container">
-      <form action="https://formspree.io/f/xyzwwyby" method="POST">
-        <input type="text" name="nom" placeholder="Nom complet" required>
-        <input type="email" name="email" placeholder="Adresse email" required>
-        <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
+      <form class="contact-form" action="https://formspree.io/f/xpzojdrl" method="POST">
+        <input type="text" name="nom" placeholder="Votre nom" required />
+        <input type="email" name="email" placeholder="Votre email" required />
+        <textarea name="message" placeholder="Votre message" required></textarea>
         <button type="submit">Envoyer</button>
       </form>
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <p>© 2025 Nom du Salon. Tous droits réservés.</p>
-    <p>Designé avec <i class="fas fa-heart"></i> par <a href="https://votreportfolio.com" target="_blank" style="color: #ffab91; text-decoration: none;">Votre Nom</a></p>
+    <p>Suivez-nous sur <a href="#">Instagram</a>, <a href="#">Facebook</a></p>
   </footer>
 
 </body>
