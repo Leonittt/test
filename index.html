@@ -14,27 +14,27 @@
     }
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: #121212;
-      color: #f5f5f5;
+      background-color: #fff4f9; /* Fond rose clair */
+      color: #3e3e3e;
       overflow-x: hidden;
-      scroll-behavior: smooth; /* Ajoute l'effet de défilement fluide */
+      scroll-behavior: smooth; /* Défilement fluide */
     }
 
     /* HEADER */
     header {
-      background: linear-gradient(90deg, #3c3c3c, #1b1b1b);
+      background: linear-gradient(90deg, #ff7f7f, #ffb3c1); /* Mélange de rose clair */
       padding: 20px;
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       opacity: 0;
       animation: fadeInHeader 1s forwards;
     }
     header h1 {
       font-family: 'Playfair Display', serif;
       font-size: 2.5rem;
-      color: #f5f5f5;
+      color: #fff;
       text-align: center;
     }
     nav {
@@ -43,7 +43,7 @@
       margin-top: 15px;
     }
     nav a {
-      color: #d7ccc8;
+      color: #fff;
       margin: 0 20px;
       text-decoration: none;
       font-weight: 600;
@@ -53,12 +53,12 @@
       animation-delay: 1s;
     }
     nav a:hover {
-      color: #ffab91;
+      color: #ff6a6a; /* Rose plus foncé au survol */
     }
 
     /* HERO SECTION */
     .hero {
-      background: url('hero.jpg') center/cover no-repeat;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.6) 100%), url('hero.jpg') center/cover no-repeat;
       padding: 150px 20px;
       text-align: center;
       color: white;
@@ -72,22 +72,33 @@
       margin-bottom: 20px;
       text-shadow: 3px 3px 10px rgba(0,0,0,0.8);
     }
+    .hero h1 span {
+      color: #ff6a6a; /* Rose clair pour le texte */
+    }
 
     /* GENERAL SECTION STYLING */
     section {
       padding: 80px 20px;
       opacity: 0;
       animation: fadeIn 1.5s forwards;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 241, 245, 0.9) 100%); /* Dégradé léger pour les sections */
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      margin: 20px 0;
     }
     section:nth-child(even) {
-      background-color: #2c2c2c;
+      background: linear-gradient(90deg, rgba(255, 241, 245, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%); /* Dégradé subtil */
     }
     section h2 {
       font-size: 2.5rem;
       font-family: 'Playfair Display', serif;
       text-align: center;
-      color: #ffab91;
+      color: #ff6a6a; /* Rose pour les titres */
       margin-bottom: 40px;
+      transition: transform 0.3s ease;
+    }
+    section h2:hover {
+      transform: translateY(-5px); /* Effet au survol */
     }
 
     /* GRID FOR CARDS */
@@ -101,17 +112,17 @@
       gap: 30px;
     }
     .card {
-      background-color: #2a2a2a;
+      background-color: #fff; /* Blanc pour les cartes */
       border-radius: 10px;
       padding: 30px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
       text-align: center;
       transition: all 0.3s ease;
       opacity: 0;
       animation: fadeInCard 1s forwards;
     }
     .card:hover {
-      background-color: #3e3e3e;
+      background-color: #ffe6e6; /* Rose très pâle au survol */
       transform: scale(1.05);
     }
     .card img {
@@ -125,6 +136,7 @@
       font-family: 'Raleway', sans-serif;
       font-size: 1.5rem;
       margin-bottom: 10px;
+      color: #ff6a6a;
     }
     .card p {
       font-family: 'Roboto', sans-serif;
@@ -134,14 +146,15 @@
 
     /* FORM STYLING */
     .reservation-form {
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(255, 255, 255, 0.9); /* Blanc semi-transparent */
       border-radius: 10px;
       padding: 40px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       width: 100%;
       max-width: 500px;
       margin: 0 auto;
       transition: all 0.3s ease;
+      background: linear-gradient(to right, #ffe6e6, #ffb3c1); /* Dégradé léger rose */
     }
     .reservation-form:hover {
       transform: translateY(-10px);
@@ -150,45 +163,53 @@
       width: 100%;
       padding: 15px;
       margin-bottom: 20px;
-      background-color: #333;
-      border: 1px solid #555;
+      background-color: #ffe6e6; /* Rose très pâle */
+      border: 1px solid #ff7f7f;
       border-radius: 8px;
-      color: #fff;
+      color: #3e3e3e;
       font-size: 1rem;
       transition: background-color 0.3s ease;
     }
     .reservation-form input:focus, .reservation-form select:focus, .reservation-form button:focus {
-      background-color: #444;
+      background-color: #ffb3c1;
     }
     .reservation-form button {
-      background-color: #ffab91;
-      color: #2c2c2c;
+      background-color: #ff6a6a; /* Rose plus foncé */
+      color: #fff;
       cursor: pointer;
       font-weight: 600;
     }
     .reservation-form button:hover {
-      background-color: #d47c5c;
+      background-color: #ff3d3d;
     }
 
     /* CONTACT SECTION */
     #contact {
-      background-color: #2c2c2c;
+      background-color: #fff; /* Blanc */
       padding: 80px 20px;
+      background: linear-gradient(to right, #ffe6e6, #ffb3c1); /* Dégradé rose clair */
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      margin: 20px 0;
     }
     #contact h2 {
       font-size: 2.5rem;
       text-align: center;
-      color: #ffab91;
+      color: #ff6a6a;
       margin-bottom: 40px;
+      transition: transform 0.3s ease;
+    }
+    #contact h2:hover {
+      transform: translateY(-5px); /* Effet au survol */
     }
     .contact-form input, .contact-form textarea {
       width: 100%;
       padding: 15px;
       margin-bottom: 20px;
-      background-color: #333;
-      border: 1px solid #555;
+      background-color: #ffe6e6; /* Rose très pâle */
+      border: 1px solid #ff7f7f;
       border-radius: 8px;
-      color: #fff;
+      color: #3e3e3e;
       font-size: 1rem;
       transition: background-color 0.3s ease;
     }
@@ -196,35 +217,35 @@
       height: 150px;
     }
     .contact-form input:focus, .contact-form textarea:focus {
-      background-color: #444;
+      background-color: #ffb3c1;
     }
     .contact-form button {
       width: 100%;
       padding: 15px;
-      background-color: #ffab91;
+      background-color: #ff6a6a;
       border: none;
-      color: #2c2c2c;
+      color: #fff;
       cursor: pointer;
       font-weight: 600;
       transition: all 0.3s ease;
     }
     .contact-form button:hover {
-      background-color: #d47c5c;
+      background-color: #ff3d3d;
     }
 
     /* FOOTER */
     footer {
-      background-color: #2c2c2c;
+      background-color: #ff7f7f; /* Rose clair */
       padding: 40px 20px;
       text-align: center;
-      color: #d7ccc8;
+      color: #fff;
       font-family: 'Raleway', sans-serif;
     }
     footer p {
       margin: 10px 0;
     }
     footer a {
-      color: #ffab91;
+      color: #fff;
       text-decoration: none;
     }
     footer a:hover {
@@ -270,85 +291,113 @@
 
   <!-- HERO SECTION -->
   <section class="hero">
-    <h1>Bienvenue au salon</h1>
-    <h1 style="color:#a0a145;">Coiffure et soins capillaires haut de gamme</h1>
+    <h1>Bienvenue à <span>Nom du Salon</span></h1>
+    <p>Le salon de coiffure de vos rêves</p>
   </section>
 
   <!-- SERVICES SECTION -->
   <section id="services">
     <h2>Nos Services</h2>
     <div class="container">
+      <!-- Liste des services -->
       <div class="grid">
         <div class="card">
-          <img src="coupe.jpg" alt="Coupe" />
-          <h3>Coupe</h3>
-          <p>Service de coupe personnalisé selon vos préférences.</p>
+          <h3>Coupes</h3>
+          <p>Nos stylistes vous offriront la coupe parfaite.</p>
         </div>
         <div class="card">
-          <img src="coloration.jpg" alt="Coloration" />
-          <h3>Coloration</h3>
-          <p>Coloration moderne et soin capillaire inclus.</p>
+          <h3>Colorations</h3>
+          <p>Redonnez vie à vos cheveux avec nos colorations de qualité.</p>
         </div>
         <div class="card">
-          <img src="soin.jpg" alt="Soin" />
-          <h3>Soin</h3>
-          <p>Des soins capillaires pour nourrir et revitaliser vos cheveux.</p>
+          <h3>Soins</h3>
+          <p>Des soins capillaires pour garder vos cheveux en parfaite santé.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ÉQUIPE SECTION -->
-  <section id="equipe">
-    <h2>Notre Équipe</h2>
-    <div class="container">
-      <div class="grid">
-        <div class="card">
-          <img src="coiffeur1.jpg" alt="Coiffeur" />
-          <h3>Jean Dupont</h3>
-          <p>Expert en coupe et styling</p>
-        </div>
-        <div class="card">
-          <img src="coiffeuse.jpg" alt="Coiffeuse" />
-          <h3>Marie Lefevre</h3>
-          <p>Spécialiste de la coloration et des soins</p>
-        </div>
+<section id="equipe">
+  <h2>Notre Équipe</h2>
+  <div class="container">
+    <div class="grid">
+      <div class="card">
+        <img src="equipe1.jpg" alt="Membre de l'équipe 1" />
+        <h3>Nom du Stylist</h3>
+        <p>Expert en coupes modernes et tendances.</p>
+      </div>
+      <div class="card">
+        <img src="equipe2.jpg" alt="Membre de l'équipe 2" />
+        <h3>Nom du Stylist</h3>
+        <p>Spécialiste des colorations et des soins capillaires.</p>
+      </div>
+      <div class="card">
+        <img src="equipe3.jpg" alt="Membre de l'équipe 3" />
+        <h3>Nom du Stylist</h3>
+        <p>Maître en coiffures et tendances créatives.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- GALERIE SECTION -->
+  <!-- GALLERY SECTION -->
   <section id="galerie">
     <h2>Galerie</h2>
     <div class="container">
       <div class="grid">
         <div class="card">
-          <img src="before_after1.jpg" alt="Avant / Après" />
+          <img src="gallery1.jpg" alt="Image 1" />
         </div>
         <div class="card">
-          <img src="before_after2.jpg" alt="Avant / Après" />
+          <img src="gallery2.jpg" alt="Image 2" />
+        </div>
+        <div class="card">
+          <img src="gallery3.jpg" alt="Image 3" />
         </div>
       </div>
     </div>
   </section>
 
   <!-- RESERVATION SECTION -->
-  <section id="reservation">
-    <h2>Réservez Votre Rendez-vous</h2>
-    <div class="container">
-      <form class="reservation-form" action="https://formspree.io/f/xyzwwyby" method="POST">
-        <input type="text" name="name" placeholder="Votre nom" required />
-        <input type="email" name="email" placeholder="Votre email" required />
-        <input type="date" name="date" required />
-        <select name="time" required>
-          <option>10:00</option>
-          <option>12:00</option>
-          <option>14:00</option>
-        </select>
-        <button type="submit">Réserver maintenant</button>
-      </form>
-    </div>
-  </section>
+<section id="reservation">
+  <h2>Réservez une séance</h2>
+  <div class="container">
+    <form class="reservation-form" action="https://formspree.io/f/xyzwwyby" method="POST">
+      <input type="text" name="name" placeholder="Votre nom" required />
+      <input type="email" name="email" placeholder="Votre email" required />
+      <input type="date" name="date" required />
+      <select name="time" required>
+        <!-- Ajout des horaires de 7h30 à 18h -->
+        <option value="07:30">07:30</option>
+        <option value="08:00">08:00</option>
+        <option value="08:30">08:30</option>
+        <option value="09:00">09:00</option>
+        <option value="09:30">09:30</option>
+        <option value="10:00">10:00</option>
+        <option value="10:30">10:30</option>
+        <option value="11:00">11:00</option>
+        <option value="11:30">11:30</option>
+        <option value="12:00">12:00</option>
+        <option value="12:30">12:30</option>
+        <option value="13:00">13:00</option>
+        <option value="13:30">13:30</option>
+        <option value="14:00">14:00</option>
+        <option value="14:30">14:30</option>
+        <option value="15:00">15:00</option>
+        <option value="15:30">15:30</option>
+        <option value="16:00">16:00</option>
+        <option value="16:30">16:30</option>
+        <option value="17:00">17:00</option>
+        <option value="17:30">17:30</option>
+        <option value="18:00">18:00</option>
+      </select>
+      
+      <button type="submit">Réserver</button>
+    </form>
+  </div>
+</section>
+
 
   <!-- CONTACT SECTION -->
   <section id="contact">
